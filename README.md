@@ -6,6 +6,15 @@ QSAR applicability domain
 - Result
 ![screenshot](./Img/pca_convex_hull.png)
 
+
+2. Using PCA to reduce dimensionality of fingerprint and applying confidence ellipse techniques to determine convex hull
+- Result
+![screenshot](./Img/pca_confidence_ellipse.png)
+
+3. Tanimoto similarity calculation and manifold learning application for dimensionality reduction. Convex hull application to determine applicability domain
+- Result
+![screenshot](./Img/convexhull_similarity.png)
+
 ## Requirements
 
 This module requires the following modules:
@@ -74,4 +83,8 @@ simi = similarity_matrix(data_train=df_train, data_test=df_test,
                         function =AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048))
 simi.fit()
 
+# 5. Smilarity convexhull
+cv =  similarity_convexhull(data =simi.matrix, list_training_fp= simi.list_training_fp, 
+                            list_test_fp =simi.list_test_fp, figsize=(8,8), save_fig=True)
+cv.fit()
 ```
