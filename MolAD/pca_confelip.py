@@ -7,11 +7,12 @@ import matplotlib.transforms as transforms
 
 class PCA_conf_elip:
     
-    def __init__(self, data, Type, ID, figsize):
+    def __init__(self, data, Type, ID, figsize, savefig = False):
         self.data = data
         self.ID = ID
         self.Type = Type
         self.figsize = figsize
+        self.savefig = savefig
     
     
     def confidence_ellipse(self, x, y, ax, n_std=1, facecolor='none', **kwargs):
@@ -85,4 +86,6 @@ class PCA_conf_elip:
                            label=r'$3\sigma$', edgecolor='blue', linestyle=':')
         ax.set_title('Applicability domain - PCA confidence ellipse', fontsize =16, weight ='semibold')
         ax.legend()
-        #plt.savefig('pca_rdk7_confidence_ellipse.png', dpi = 300)
+        if self.savefig == True:
+
+            plt.savefig('Img/pca_confidence_ellipse.png', dpi = 300)

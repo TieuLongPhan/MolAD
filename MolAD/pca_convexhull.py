@@ -6,11 +6,12 @@ from scipy.spatial import ConvexHull
 
 class PCA_convexhull:
     
-    def __init__(self, data, Type, ID, figsize):
+    def __init__(self, data, Type, ID, figsize, savefig = False):
         self.data = data
         self.ID = ID
         self.Type = Type
         self.figsize = figsize
+        self.savefig = savefig
     
     def point_in_hull(self, point, hull, tolerance=1e-12):
             return all(
@@ -42,8 +43,10 @@ class PCA_convexhull:
 
         for simplex in self.hull.simplices:
             plt.plot(self.data_train[simplex, 0], self.data_train[simplex, 1], 'k-')
+            
+        if self.savefig == True:
 
-        #plt.savefig('pca_rdk7_convex_hull.png', dpi = 300)
+            plt.savefig('Img/pca_convex_hull.png', dpi = 300)
     def convexhull_fit(self):
         self.AD_PCA()
         self.Visualize()
