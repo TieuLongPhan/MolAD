@@ -1,7 +1,7 @@
 # MolAD
 QSAR applicability domain
 - This package is used to determine applicability domain of QSAR model
-- 3 kinds of techniques are used:
+- 3 kinds of techniques are used
 1. Using PCA to reduce dimensionality of fingerprint and applying convexhull techniques to determine convex hull
 - Result
 ![screenshot](./Img/pca_convex_hull.png)
